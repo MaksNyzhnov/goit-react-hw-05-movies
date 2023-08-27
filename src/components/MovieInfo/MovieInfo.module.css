@@ -1,0 +1,26 @@
+.movie_card {
+  display: flex;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+.movie_info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+.additional_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h3 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+p {
+  font-size: 24px;
+}
+p:not(:last-child) {
+  margin-bottom: 32px;
+}

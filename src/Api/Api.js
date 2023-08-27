@@ -16,14 +16,14 @@ export const getMovieByName = name => {
   return axios.get(`${URL}/search/movie?api_key=${API_KEY}&query=${name}`);
 };
 
-export const getMovieDetails = movieId => {
-  return axios.get(`${URL}/movie/${movieId}?api_key=${API_KEY}`);
+export const getMovieById = id => {
+  return axios.get(`${URL}/movie/${id}?api_key=${API_KEY}`);
 };
 
-export const getMovieCast = movieId => {
-  return axios.get(`${URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
+export const getMovieCast = id => {
+  return axios.get(`${URL}/movie/${id}/credits?api_key=${API_KEY}`);
 };
 
-export const GetMovieReviews = movieId => {
-  return axios.get(`${URL}/movie/${movieId}/reviews?api_key=${API_KEY}`);
+export const GetMovieReviews = id => {
+  return axios.get(`${URL}/movie/${id}/reviews?api_key=${API_KEY}`);
 };
