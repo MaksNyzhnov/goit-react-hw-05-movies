@@ -1,9 +1,11 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import css from './MovieInfo.module.css'
+
+import { Suspense } from 'react';
 
 const MovieInfo = ({ movie }) => {
     const { poster_path, original_title, genres, vote_average, overview, release_date } = movie
-    console.log(movie)
+    
     // const normalizedReleaseDate = release_date.split('-')[0];
     
     return <section>
@@ -19,7 +21,7 @@ const MovieInfo = ({ movie }) => {
                 return `${genre.name} `
             })}</p></div>
         </div>
-        <div className={css.additional_info}><p>Additional information</p>
+        <div className={css.additional_info}><p className={css.additional_info_title}>Additional information</p>
             <ul>
             <li>
 <NavLink to='cast'>Cast</NavLink>
@@ -28,6 +30,9 @@ const MovieInfo = ({ movie }) => {
 <NavLink to='reviews'>Reviews</NavLink>
             </li>
             </ul>
+            <Suspense fallback={<div> Loading...</div>}>
+<Outlet/>
+            </Suspense>
         </div>
 </section>
 }
