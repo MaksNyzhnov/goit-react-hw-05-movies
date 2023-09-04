@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import css from './MovieInfo.module.css'
 
 import { Suspense } from 'react';
@@ -25,10 +25,10 @@ const MovieInfo = ({ movie }) => {
         <div className={css.additional_info}><p className={css.additional_info_title}>Additional information</p>
             <ul>
             <li>
-<NavLink to='cast'>Cast</NavLink>
+<Link to='cast'>Cast</Link>
                 </li>
                 <li>
-<NavLink to='reviews'>Reviews</NavLink>
+<Link to='reviews'>Reviews</Link>
             </li>
             </ul>
             <Suspense fallback={<div> Loading...</div>}>

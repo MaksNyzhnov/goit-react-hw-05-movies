@@ -1,12 +1,12 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './MovieList.module.css'
-const MovieList = ({movies}) => {
+const MovieList = ({movies, location}) => {
     
-    const location = useLocation()
+    
     return (
         <ul>
             {movies.map(({id, original_title}) => {
-                return <li key={id}><NavLink state={{from: location.pathname}} to={`/movies/:${id}`}>{original_title}</NavLink></li>
+                return <li key={id}><Link state={{from: location}} to={`/movies/:${id}`}>{original_title}</Link></li>
             })}
     </ul>
 )

@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import './MovieSearch.module.css'
 import MovieList from "components/MovieList/MovieList";
 import { getMovieByName } from "Api/Api";
@@ -8,7 +9,7 @@ const MovieSearch = () => {
     const [inputValue, setInputValue] = useState('');
     const [SearchQuery, setSearchQuery] = useState('');
     const [movies, setMovies] = useState([]);
-
+    const location = useLocation()
     useEffect(() => {
         const fetchMovies = async (name) => {
 
@@ -36,7 +37,7 @@ const MovieSearch = () => {
                 <input type="text" name="movie" value={ inputValue} onChange={onInputChange} />
                 <button type="sybmit">Search</button>
             </form>
-            {movies.length !== 0 && <MovieList movies={movies} />}
+            {movies.length !== 0 && <MovieList movies={movies} location={location} />}
             
         </main>
     )

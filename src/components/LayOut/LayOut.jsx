@@ -8,7 +8,7 @@ const Layout = () => {
         <><header className={css.header}> 
                 <nav className={css.headerLinks}> 
                 <NavLink className={css.headerLink} to='/home' state={{ from: location.pathname}}>Home</NavLink> 
-                    <NavLink className={css.headerLink} to='/Movies'>Movies</NavLink>
+                    <NavLink className={css.headerLink} to='/Movies' state={{ from: location.pathname}} >Movies</NavLink>
                 </nav>
             </header>
         <div className={css.container}> 
