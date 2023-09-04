@@ -3,6 +3,8 @@ import css from './MovieCast.module.css'
 import { useParams } from 'react-router-dom'
 import { getMovieCast } from 'Api/Api'
 import { useState } from 'react'
+import person from '../../images/person.png'
+const URL = 'https://image.tmdb.org/t/p/w500';
 
 const MovieCast = () => {
     const [movieCast, setMovieCast] = useState(null)
@@ -14,7 +16,7 @@ const MovieCast = () => {
 
             await getMovieCast(id).then(response => setMovieCast(response.data.cast) )
 
-            console.log(movieCast)
+           
         }
         
         fetchMovie(normilezedId)
@@ -25,7 +27,16 @@ const MovieCast = () => {
         <ul className={css.movie_cast_list}>
             {movieCast && movieCast.map(({id, profile_path, name, character}) => {
                 return (<li key={id}>
-                    <img src={profile_path} alt="Actor" width="80px" height="120px"/>
+                    {profile_path ? (
+                <img
+                  src={`${URL}${profile_path}`}
+                  alt={name}
+                  width="120px"
+                  height="160px"
+                />
+              ) : (
+                <img src={person} alt={name} width="120px" height="160px" />
+              )}
                     <p>{name}</p>
                     <p>Character: {character}</p>
                 </li>)
