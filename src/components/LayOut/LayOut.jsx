@@ -1,5 +1,6 @@
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import css from './Layout.module.css'; // Зверніть увагу на імпорт через `css`
+import { Suspense } from "react";
 
 
 const Layout = () => {
@@ -13,7 +14,9 @@ const Layout = () => {
             </header>
         <div className={css.container}> 
             
-            <Outlet/>
+                <Suspense>
+                    <Outlet/>
+                </Suspense>
         </div></>
     )
 }

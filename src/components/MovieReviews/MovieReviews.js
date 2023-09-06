@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 const MovieReviews = () => {
   const [MovieReviews, setMovieReviews] = useState(null);
   let { id } = useParams();
-  const normilezedId = id.slice(1);
 
   useEffect(() => {
     const fetchMovie = async id => {
@@ -14,12 +13,12 @@ const MovieReviews = () => {
       );
     };
 
-    fetchMovie(normilezedId);
-  }, [normilezedId]);
+    fetchMovie(id);
+  }, [id]);
   return (
     <div>
+      {MovieReviews?.length === 0 && <p>There is no reviews</p>}
       <ul className={css.movie_reviews_list}>
-        {!MovieReviews && <p>There is no reviews</p>}
         {MovieReviews &&
           MovieReviews.map(({ author, content, id }) => {
             return (

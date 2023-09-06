@@ -9,7 +9,7 @@ const URL = 'https://image.tmdb.org/t/p/w500';
 const MovieCast = () => {
     const [movieCast, setMovieCast] = useState(null)
     let { id } = useParams()
-    const normilezedId = id.slice(1)
+
     
     useEffect(() => {
         const fetchMovie = async (id) => {
@@ -19,11 +19,12 @@ const MovieCast = () => {
            
         }
         
-        fetchMovie(normilezedId)
+        fetchMovie(id)
         
-    }, [normilezedId])
+    }, [id])
 
     return (<div>
+        {movieCast?.length === 0 && <p>There is no cast information</p>}
         <ul className={css.movie_cast_list}>
             {movieCast && movieCast.map(({id, profile_path, name, character}) => {
                 return (<li key={id}>

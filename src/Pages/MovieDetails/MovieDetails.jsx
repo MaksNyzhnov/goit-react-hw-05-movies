@@ -1,6 +1,6 @@
-import { Outlet, useParams, NavLink, useLocation } from "react-router-dom"
+import { useParams, NavLink, useLocation } from "react-router-dom"
 
-import { Suspense, useRef } from "react"
+import { useRef } from "react"
 import MovieInfo from "components/MovieInfo/MovieInfo"
 import { useEffect, useState } from "react"
 import { getMovieById } from "Api/Api"
@@ -10,7 +10,6 @@ const MovieDetails = () => {
 
     let { id } = useParams()
 
-    const normilezedId = id.slice(1)
 
     const location = useLocation()
     const prevLocation = location.state?.from ?? '/movies';
@@ -23,17 +22,15 @@ const MovieDetails = () => {
             
         }
         
-        fetchMovie(normilezedId)
+        fetchMovie(id)
         
-    }, [normilezedId])
+    }, [id])
     
     return (
         <main>
             <NavLink to={prevPageLink.current}> Go back</NavLink>
            {movie && <MovieInfo movie={movie} />}
-            <Suspense fallback={<div> Loading...</div>}>
-<Outlet/>
-            </Suspense>
+            
     </main>
 )
 }
