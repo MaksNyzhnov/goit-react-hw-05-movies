@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/29.6f8b83bf.chunk.css","mappings":"AAAA,wCAEE,iBAAU,CAAV,cAAU,CADV,aAEF","sources":["components/MovieReviews/MovieReviews.module.css"],"sourcesContent":[".movie_reviews_list {\n  display: block;\n  columns: 1;\n}\n"],"names":[],"sourceRoot":""}
